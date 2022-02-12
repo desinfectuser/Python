@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-
+######DIESES PYTHON SKRIPT IST NUR FÜR WINDOWS GEDACHT!!! FÜR ANDERE SYSTEME SIEHE "ProzessMonitor.py" !
 import datetime
 import psutil
 from tabulate import tabulate
@@ -34,6 +32,7 @@ def get_processes():
             except psutil.AccessDenied:
                 user = "Berechtigung verweigert"
             nice = p.nice
+            p.
         procs.append({
             'PID': pid,
             'Name': name,
@@ -56,7 +55,4 @@ while True:
     print_processes(procs)
     time.sleep(5)
     procs = get_processes()
-    if "nt" in os.name:
-        os.system("cls")
-    else:
-        os.system("clear")
+    os.system("cls")
