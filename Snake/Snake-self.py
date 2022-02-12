@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 
 # -*- coding: utf-8 -*-
-#"""
-#Spyder Editor
-#
-#Dies ist eine temporäre Skriptdatei.
-#"""
 
 import pygame
 from enum import Enum
@@ -32,7 +27,7 @@ fenster_breite = 1295
 fenster_höhe = 768
 
 pygame.init()
-pygame.display.set_caption("Felix´ Snake")
+pygame.display.set_caption("Desinfectuser´s Snake")
 fenster = pygame.display.set_mode((fenster_breite, fenster_höhe))
 
 refresh_contoller = pygame.time.Clock()
@@ -102,7 +97,6 @@ def neuzeichnen_des_Spielfelds():
     for body in snake_body:
         pygame.draw.circle(fenster, pygame.Color(0, 0, 255), (body[0], body[1]), scale / 2)
     pygame.draw.rect(fenster, pygame.Color(0, 0, 0), pygame.Rect(frucht_position[0]-scale/2, frucht_position[1]-scale/2, scale, scale))
-
 
 def game_over():
     if snake_position[0] < 0 or snake_position[0] > fenster_breite - 10:
