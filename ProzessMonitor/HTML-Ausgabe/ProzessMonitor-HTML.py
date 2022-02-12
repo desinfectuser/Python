@@ -1,4 +1,4 @@
-######DIESES PYTHON SKRIPT IST NUR FÜR WINDOWS GEDACHT!!! FÜR ANDERE SYSTEME SIEHE "ProzessMonitor.py" !
+#!/usr/bin/env python3
 ###Vorlage: The Morpheus Tutorials "https://github.com/TheMorpheus407/Python-Lets-Code"
 
 import datetime
@@ -47,11 +47,14 @@ def get_processes():
 
 
 def print_processes(ps):
-    print(tabulate(ps, headers="keys", tablefmt='github'))
+    print(tabulate(ps, headers="keys", tablefmt='html'))
 
 procs = get_processes()
 while True:
     print_processes(procs)
     time.sleep(5)
     procs = get_processes()
-    os.system("cls")
+    if "nt" in os.name:
+        os.system("cls")
+    else:
+        os.system("clear")

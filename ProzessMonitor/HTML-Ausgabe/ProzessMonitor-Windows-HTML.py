@@ -47,7 +47,7 @@ def get_processes():
 
 
 def print_processes(ps):
-    print(tabulate(ps, headers="keys", tablefmt='github'))
+    print(tabulate(ps, headers="keys", tablefmt='html'))
 
 procs = get_processes()
 while True:

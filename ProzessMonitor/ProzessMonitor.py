@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+###Vorlage: The Morpheus Tutorials "https://github.com/TheMorpheus407/Python-Lets-Code"
 
 import datetime
 import psutil
@@ -33,7 +33,6 @@ def get_processes():
                 user = p.username()
             except psutil.AccessDenied:
                 user = "Berechtigung verweigert"
-            nice = p.nice
         procs.append({
             'PID': pid,
             'Name': name,
@@ -43,7 +42,6 @@ def get_processes():
             'Status': status,
             'Arbeitsspeicher Auslastung': memory,
             'Benutzer': user,
-            'Wichtigkeit': nice
         })
     return procs
 
