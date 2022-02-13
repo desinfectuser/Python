@@ -23,16 +23,20 @@ def get_processes():
             try:
                 cpu_affinity = len(p.cpu_affinity())
             except psutil.AccessDenied:
-                cpu_affinity = "Berechtigung Verweigert"
+                cpu_affinity = "Berechtigung Verweigert!"
             status = p.status()
             try:
                 memory = p.memory_full_info().uss
             except psutil.AccessDenied:
-                memory = "Berechtigung verweigert"
+                memory = "Berechtigung verweigert!"
             try:
                 user = p.username()
             except psutil.AccessDenied:
-                user = "Berechtigung verweigert"
+                user = "Berechtigung verweigert!"
+            try:
+                nice = p.nice()
+            except psutil.AccessDenied:
+                nice = "Berechtigung verweigert!"
         procs.append({
             'PID': pid,
             'Name': name,
@@ -42,6 +46,7 @@ def get_processes():
             'Status': status,
             'Arbeitsspeicher Auslastung': memory,
             'Benutzer': user,
+            'Wichtigkeit': nice
         })
     return procs
 
