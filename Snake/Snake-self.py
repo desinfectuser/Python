@@ -53,7 +53,7 @@ scale = 20
 
 
 
-def handle_keys(richtungs):
+def handle_keys(richtungs_anweisung):
     neue_richtung = richtung
     for event in [e for e in pygame.event.get() if e.type == pygame.KEYDOWN]:
         if event.key  == pygame.K_UP and richtung != Richtungen.DOWN:
@@ -110,10 +110,9 @@ def game_over():
 
 def game_over_nachricht():
     font = pygame.font.SysFont('Arial Black', 48)
-    render = font.render(f"Game Over!"
-                         "Score: {score}", True, pygame.Color(0, 0, 0))
+    render = font.render(f"Game Over!!! \n Score: {score}", True, pygame.Color(0, 0, 0))
     rect = render.get_rect()
-    rect.midtop(fenster_breite / 2,  fenster_höhe / 2)
+    rect.midtop(fenster_breite/2, fenster_höhe/2)
     fenster.blit(render, rect)
     pygame.display.flip()
     time.sleep(5)
@@ -122,7 +121,8 @@ def game_over_nachricht():
 
 def paint_hud():
     font = pygame.font.SysFont("Arial", 24)
-    render = font.render(f"Score = {score}", True, pygame.Color(0, 0, 0))
+    render = font.render(f"Score: {score}", True, pygame.Color(0, 0, 0))
+#    render = font.render(f"Score: {score}", True, pygame.Color(255, 255, 255))
     rect = render.get_rect()
     fenster.blit(render, rect)
     pygame.display.flip()
