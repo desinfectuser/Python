@@ -16,5 +16,4 @@ for sub in subdomains:
         pass
     else:
         found.append(sub)
-        print(f"Gefundene Subdomains: {i}")
-
+        print(f"Gefundene Subdomains: {sub}")
