@@ -5,7 +5,7 @@ file = open("subdomains.txt")
 
 subdomains = []
 for i in file.readlines():
-    subdomains.append(i.replace('\n' ''))
+    subdomains.append(i.replace('\n' ' '))
 
 found = []
 for sub in subdomains:

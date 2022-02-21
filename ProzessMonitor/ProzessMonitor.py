@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.10
 ###Vorlage: The Morpheus Tutorials "https://github.com/TheMorpheus407/Python-Lets-Code"
 
 import datetime
