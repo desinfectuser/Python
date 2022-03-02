@@ -7,36 +7,58 @@ from tabulate import tabulate
 import os
 import time
 
+padm = "Berechtigung verweigert!"
+
+
 def get_processes():
     procs = []
     for p in psutil.process_iter():
         with p.oneshot():
+
             pid = p.pid
             if pid == 0:
                 continue
             name = p.name()
+
             try:
                 create_time = datetime.datetime.fromtimestamp(p.create_time())
             except OSError:
                 create_time = datetime.datetime.fromtimestamp(psutil.boot_time())
+
             cpu_usage = p.cpu_percent()
+
             try:
                 cpu_affinity = len(p.cpu_affinity())
             except psutil.AccessDenied:
-                cpu_affinity = "Berechtigung Verweigert!"
+                cpu_affinity = padm
+
             status = p.status()
+
             try:
                 memory = p.memory_full_info().uss
             except psutil.AccessDenied:
-                memory = "Berechtigung verweigert!"
+                memory = padm
+
             try:
                 user = p.username()
             except psutil.AccessDenied:
-                user = "Berechtigung verweigert!"
+                user = padm
+
             try:
                 nice = p.nice()
             except psutil.AccessDenied:
-                nice = "Berechtigung verweigert!"
+                nice = padm
+
+            try:
+                connections = p.connections()
+            except psutil.AccessDenied:
+                connections = padm
+
+            try:
+                currentpwd = p.cwd()
+            except psutil.AccessDenied:
+                currentpwd = padm
+
         procs.append({
             'PID': pid,
             'Name': name,
@@ -46,7 +68,9 @@ def get_processes():
             'Status': status,
             'Arbeitsspeicher Auslastung': memory,
             'Benutzer': user,
-            'Wichtigkeit': nice
+            'Wichtigkeit': nice,
+            'Verbindungen': connections,
+            'Derzeitiges Arbeitsverzeichnis': currentpwd
         })
     return procs
 
