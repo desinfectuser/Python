@@ -1,4 +1,4 @@
-######DIESES PYTHON SKRIPT IST NUR FÜR WINDOWS GEDACHT!!! FÜR ANDERE SYSTEME SIEHE "ProzessMonitor.py" !
+######Dieses Python Skript ist NUR FÜR WINDOWS Gedacht! Es ist OHNE Shebang-Zeile. Für andere Systeme (z.B. Linux) siehe "ProzessMonitor.py" !
 ###Vorlage: The Morpheus Tutorials "https://github.com/TheMorpheus407/Python-Lets-Code"
 
 import datetime
