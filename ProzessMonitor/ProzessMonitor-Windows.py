@@ -7,7 +7,7 @@ from tabulate import tabulate
 import os
 import time
 
-padm = "Berechtigung verweigert!"
+padm = "Kein Zugriff!"
 
 def get_processes():
     procs = []
@@ -49,7 +49,7 @@ def get_processes():
                 nice = padm
 
             try:
-                connections = p.connections()
+                connections = len(p.connections())
             except psutil.AccessDenied:
                 connections = padm
 
@@ -69,7 +69,7 @@ def get_processes():
             'Benutzer': user,
             'Wichtigkeit': nice,
             'Verbindungen': connections,
-            'Derzeitiges Arbeitsverzeichnis': currentpwd
+#            'Arbeitsverzeichnis': currentpwd
         })
     return procs
 
